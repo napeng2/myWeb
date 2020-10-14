@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .name {
+      width: 300px;
+      height: 300px;
+      background-color: burlywood;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      /* 
+      操作容器里面的项目
+      row（默认值）：主轴为水平方向，起点在左端。
+      row-reverse：主轴为水平方向，起点在右端。
+      column：主轴为垂直方向，起点在上沿。
+      column-reverse：主轴为垂直方向，起点在下沿。 */
+      /* flex-direction: row; */
+
+      /* flex-wrap: wrap; */
+      /* 默认情况是所有项目排列在一条线上，那么如果一行元素
+      排列不了，怎么换行，flex-wrap解决 ！默认
+      nonwrap不换行，项目挤压
+      wrap换行，第一行在上面
+      wrap-reserve 第一行在下面
+       */
+
+        /* flex-flow 是flex-direction 和 flex-wrap的简写 默认值 row nonwrap */
+
+        /* 5、 justify-content项目在主轴上的对齐方式
+        flex-start:左对齐
+        flex-end : 右对齐
+        center:中间对齐
+        space-between 项目两端对齐 间隔大小一样
+        space-around 项目左右间隔都对齐
+        
+         */
+
+         /* 
+         align-items定义项目交叉轴对齐
+         flex-start：交叉轴的起点对齐。
+         flex-end：交叉轴的终点对齐。
+         center：交叉轴的中点对齐。
+         baseline: 项目的第一行文字的基线对齐。
+         stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+          */
+
+
+      /* 
+      align-content属性
+      属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用
+       */
+    }
+
+    .na {
+      background-color: red;
+      width: 30px;
+      height: 30px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="name">
+    <div class="na"></div>
+    <div class="na"></div>
+    <div class="na"></div>
+    <div class="na"></div>
+    <div class="na"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="p_id">这个值</p>
+  <input type="text" id="input_id">
+  <script>
+    document.addEventListener('keyup',function(e){
+      // console.log(e.target.value);
+      obj.name=e.target.value
+    })
+    let obj={}
+    Object.defineProperty(obj,'name',{
+      get:function(){//默认没有返回值
+        console.log('读取一个值');
+      },
+      set:function(data){
+        document.querySelector('#input_id').value=data
+        document.querySelector('#p_id').innerHTML=data
+      }
+    })
+    
+  </script>
+</body>
+</html>

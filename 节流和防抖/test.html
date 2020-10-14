@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .a{
+      width: 100%;
+      height: 200px;
+      background-color: black;
+      line-height: 200px;
+      text-align: center;
+      background-size: 30px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="a"></div>
+  <button onclick="stop()">停止</button>
+  <script>
+    let count=0
+    let div=document.querySelector('.a')
+    function debounce(ajax,wait){
+      let timeout 
+      let show=function(){
+        // console.log(this,arguments);
+        let context=this
+        let args=arguments
+        clearInterval(timeout)
+        timeout=setTimeout(()=>{
+          ajax.call(this,args)
+        },wait)
+        
+        show.prototype.cancel=function(){
+          clearInterval(timeout)
+          console.log('123123');
+        }
+      }
+      return show
+    }
+
+    function stop(){
+      item.prototype.cancel()
+    }
+
+    function ajax(e){
+      div.innerHTML=count++
+      // console.log(e);
+    }
+    let item=debounce(ajax,300)
+    console.dir(item);
+    div.onmousemove=item
+  </script>
+</body>
+</html>

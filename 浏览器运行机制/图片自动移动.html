@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #title {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: relative;
+      left:50px
+    }
+  </style>
+</head>
+<body>
+  <div id="title"></div>
+  <script>
+    function Timer(callback,time=50)
+    {
+      let id =setInterval(()=>callback(id),time)
+    }
+
+    Timer((id)=>{
+      const div=document.getElementById('title')
+      let left=parseInt(window.getComputedStyle(div).left)
+      console.log(left);
+      div.style.left=left+10+'px'
+      if (left>=200) {
+        clearInterval(id)
+        Timer((id)=>{
+          let width=parseInt(window.getComputedStyle(div).width)
+          div.style.width=width-10+'px'
+          if (width===30) {
+            clearInterval(id)
+          }
+        })
+      }
+    },50)
+  </script>
+</body>
+
+</html>

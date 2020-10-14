@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father{
+      width: 200px;
+      height: 20px;
+      border: 1px solid red;
+      position: relative;
+      top: 30px;
+      left: 200px;
+      
+    }
+    .btn{
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      position: absolute;
+      z-index: 3;
+    }
+    .text{
+      width: 100%;
+      position: absolute;
+      line-height: 0px;
+      font-size: 10px;
+      color:pink;
+      text-align: center;
+      display: block;
+      z-index: 2;
+    }
+    .bg{
+      position: absolute;
+      height: 100%;
+      background-color: green;
+      z-index: 1;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <a class="btn"></a>
+    <p class="text">向右滑动</p>
+    <div class="bg"></div>
+  </div>
+  <script>
+    window.onload=function(){
+      var box=document.querySelector('.father')
+      var btn=document.querySelector('.btn')
+      var bg=document.querySelector('.bg')
+      var text=document.querySelector('.text')
+      btn.onmousedown=function(e){
+        var downX=e.clientX;
+        btn.onmousemove=function(e){
+          let moveX=e.clientX-downX
+          if (moveX>0) {
+            btn.style.left=moveX+'px'
+            bg.style.width=moveX+'px'
+            if (moveX>=box.offsetWidth-btn.offsetWidth-2) {
+              text.innerHTML='拖动完成'
+              text.style.color='#fff'
+              btn.onmousemove=null
+            }
+          }
+        }
+      }
+
+      btn.onmouseup=function(e){
+        var bg=document.querySelector('.bg')
+        var text=document.querySelector('.text')
+        if (text.innerHTML!=='拖动完成') {
+          this.style.left=0+'px'
+          bg.style.width=0+'px'
+          btn.onmousemove=null
+        }
+        else
+        btn.onmousedown=null
+      }
+    }
+  </script>
+</body>
+</html>

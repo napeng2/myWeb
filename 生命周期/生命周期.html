@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <h3 class="text">{{msg}}</h3>
+      <input type="button" @click="msg='new'">
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      new Vue({
+        el:'#app',
+        data:{
+          msg :'hello'
+        },
+        methods: {
+          show(){
+            console.log('methods');
+          }
+        },
+        beforeCreate() {
+          // alert(this.msg)
+        },
+
+        created() {
+          // this.show()
+        },
+        beforeMount() {
+          // console.log(document.querySelector('.text').innerHTML);
+        },
+        mounted() {
+          // console.log(document.querySelector('.text').innerHTML);
+        },
+        beforeUpdate() {
+          // console.log('此时修改data数据内容：'+this.msg);
+          // console.log('此时未修改过的数据：'+document.querySelector('.text').innerHTML);   
+        },
+        updated() {
+          console.log('此时修改data数据内容：'+this.msg);
+          console.log('此时未修改过的数据：'+document.querySelector('.text').innerHTML);
+        },
+      })
+    </script>
+</body>
+</html>
